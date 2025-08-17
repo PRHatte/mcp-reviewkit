@@ -1,0 +1,24 @@
+confluence:
+  enabled: true
+  spaces: ["ENG", "ARCH"]
+  queries:
+    - "Service {repo} design"
+    - "ADR {repo}"
+  maxSnippets: 6
+
+jira:
+  enabled: true
+  projectKey: "ENG"
+  issueType: "Task"
+  defaultLabels: ["mcp-reviewkit", "{repo}"]
+  commands: ["/create-jira", "/jira"]
+
+rules:
+  requireLinkedIssue: true
+  requireTestsForSrcChanges: true
+  requireDocsOnPaths: ["api/**", "migrations/**"]
+  forbidSecrets:
+    enabled: true
+
+llm:
+  enabled: false
