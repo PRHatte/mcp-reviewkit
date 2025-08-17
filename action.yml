@@ -1,1 +1,28 @@
-
+name: MCP ReviewKit
+description: MCP-only PR review (GitHub/Confluence/Jira) with rules + optional LLM
+inputs:
+  config:
+    description: Path to config file in the repo
+    default: .github/pr-reviewer.yml
+  fail-on:
+    description: error | warn | none
+    default: error
+  enable-llm:
+    description: "true | false"
+    default: "false"
+  mcp-github-url:
+    description: MCP GitHub server URL (wss/https)
+    required: true
+  mcp-confluence-url:
+    description: MCP Confluence server URL (wss/https)
+    required: false
+  mcp-jira-url:
+    description: MCP Jira server URL (wss/https)
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
