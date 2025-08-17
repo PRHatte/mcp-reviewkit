@@ -1,1 +1,1 @@
-
+rootProject.name = "mcp-reviewkit"
